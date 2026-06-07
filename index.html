@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Condado de Valíria — Manual de Propriedades</title>
+  <style>
+    :root {
+      --ouro:        #f5c842;
+      --ouro-brilho: #ffe680;
+      --ouro-dark:   #b8921a;
+      --ouro-dim:    #7a5f10;
+      --bg-dark:     #1c1505;
+      --bg-mid:      #231a06;
+      --bg-card:     #2a1f07;
+      --bg-card2:    #322509;
+      --text:        #f2e8cc;
+      --text-muted:  #c8a84a;
+      --accent:      #ffd966;
+      --red:         #cc3333;
+      --border:      #3d2c00;
+      --border-glow: #6b4c00;
+      --glow:        rgba(245,200,66,0.18);
+      --glow-strong: rgba(245,200,66,0.45);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Crimson Text', 'Georgia', serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      background-image:
+        radial-gradient(ellipse 80% 40% at 50% 0%, #3a2800 0%, #1c1505 55%),
+        radial-gradient(ellipse 60% 30% at 50% 100%, #251900 0%, transparent 70%);
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      text-align: center;
+      padding: 72px 24px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(245,200,66,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: 'Cinzel', 'Georgia', serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      color: var(--ouro-brilho);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 20px var(--glow-strong),
+        0 0 60px rgba(245,200,66,0.25),
+        0 2px 4px rgba(0,0,0,0.8);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 12px rgba(245,200,66,0.2);
+      margin-bottom: 0;
+    }
+
+    .banner-divider {
+      margin-top: 0;
+      width: 100%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .banner-divider img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: rgba(8,5,0,0.95);
+      border-bottom: 1px solid var(--border-glow);
+      border-top: 1px solid var(--border-glow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 1px 0 var(--glow);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    nav li a {
+      display: block;
+      padding: 15px 20px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.25s, text-shadow 0.25s;
+    }
+
+    nav li a:hover {
+      color: var(--ouro-brilho);
+      text-shadow: 0 0 12px var(--glow-strong);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .section-icon { font-size: 1.6rem; }
+
+    h2 {
+      font-family: 'Cinzel', 'Georgia', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ouro);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 16px rgba(245,200,66,0.3);
+    }
+
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--accent);
+      margin: 32px 0 14px;
+      letter-spacing: 0.07em;
+      text-shadow: 0 0 8px rgba(255,217,102,0.2);
+    }
+
+    p { margin-bottom: 14px; color: var(--text); }
+
+    /* ─── AVISOS ─── */
+    .aviso-box {
+      background: linear-gradient(135deg, #1a0505, #0d0000);
+      border: 1px solid #5a1515;
+      border-left: 3px solid #cc3333;
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 30px rgba(180,0,0,0.06), 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .aviso-box .aviso-title {
+      color: #f08080;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .aviso-box ul { list-style: none; padding: 0; }
+
+    .aviso-box ul li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      color: #ddb0b0;
+      font-size: 0.95rem;
+    }
+
+    .aviso-box ul li::before {
+      content: '⚠';
+      position: absolute;
+      left: 0;
+      font-size: 0.75rem;
+      top: 7px;
+    }
+
+    /* ─── CARDS EMPRESA ─── */
+    .empresas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .empresa-card {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 12px;
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      transition: border-color 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+    }
+
+    .empresa-card:hover {
+      border-color: var(--ouro);
+      color: var(--ouro-brilho);
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px rgba(245,200,66,0.15), 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .empresa-card .emp-icon { font-size: 1.7rem; display: block; margin-bottom: 8px; }
+
+    /* ─── STEPS ─── */
+    .steps { margin: 24px 0; }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--ouro-dark), var(--ouro));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      color: #080500;
+      font-size: 0.95rem;
+      box-shadow: 0 0 12px rgba(245,200,66,0.3);
+    }
+
+    .step-content { flex: 1; }
+    .step-content strong { color: var(--accent); font-size: 1rem; }
+
+    .step-content ul {
+      list-style: none;
+      margin: 8px 0 0;
+      padding: 0;
+    }
+
+    .step-content ul li {
+      padding: 3px 0 3px 18px;
+      position: relative;
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    .step-content ul li::before {
+      content: '›';
+      color: var(--ouro);
+      position: absolute;
+      left: 4px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* ─── COMMANDS ─── */
+    .cmd-grid { display: grid; gap: 10px; margin: 16px 0; }
+
+    .cmd-item {
+      background: #050300;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .cmd-item:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 0 10px rgba(245,200,66,0.08);
+    }
+
+    .cmd-code {
+      color: #88e0aa;
+      font-family: 'Courier New', monospace;
+      font-size: 0.87rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 260px;
+      text-shadow: 0 0 8px rgba(136,224,170,0.25);
+    }
+
+    .cmd-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+    /* ─── TABLES ─── */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+
+    thead tr {
+      background: linear-gradient(90deg, #1a1200, #0e0900);
+      border-bottom: 1px solid var(--border-glow);
+    }
+
+    th {
+      color: var(--ouro);
+      text-align: left;
+      padding: 13px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(245,200,66,0.3);
+    }
+
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(61,44,0,0.4);
+      color: var(--text-muted);
+    }
+
+    tbody tr { transition: background 0.15s; }
+    tbody tr:hover { background: rgba(245,200,66,0.04); }
+    tbody tr:last-child td { border-bottom: none; }
+
+    td code {
+      background: #050300;
+      color: #88e0aa;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #1a3a20;
+    }
+
+    /* ─── COMBOS ─── */
+    .combo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .combo-card {
+      background: var(--bg-card2);
+      border: 1px solid var(--border-glow);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      transition: box-shadow 0.25s;
+    }
+
+    .combo-card:hover {
+      box-shadow: 0 0 20px rgba(245,200,66,0.1), 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .combo-card-title {
+      background: linear-gradient(90deg, #1e1500, #0e0900);
+      padding: 12px 16px;
+      color: var(--ouro);
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-glow);
+      text-shadow: 0 0 8px rgba(245,200,66,0.2);
+    }
+
+    .combo-card table { font-size: 0.85rem; }
+    .combo-card thead tr { background: rgba(0,0,0,0.4); }
+
+    /* ─── PRAZOS ─── */
+    .prazo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 16px 0;
+    }
+
+    .prazo-card {
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .prazo-card.contingente {
+      background: linear-gradient(135deg, #120d00, #1a1200);
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 0 20px rgba(245,200,66,0.06);
+    }
+
+    .prazo-card.donate {
+      background: linear-gradient(135deg, #051205, #081808);
+      border: 1px solid #1a4a1a;
+      box-shadow: 0 0 20px rgba(100,200,100,0.06);
+    }
+
+    .prazo-card .prazo-days {
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--ouro-brilho);
+      line-height: 1;
+      text-shadow: 0 0 24px var(--glow-strong);
+    }
+
+    .prazo-card.donate .prazo-days {
+      color: #7adf8a;
+      text-shadow: 0 0 20px rgba(100,220,120,0.4);
+    }
+
+    .prazo-card .prazo-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* ─── GLOSSARY ─── */
+    .glossary { margin: 16px 0; }
+    .gloss-group { margin-bottom: 32px; }
+
+    .gloss-group-title {
+      color: var(--ouro-dark);
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border-bottom: 1px solid var(--border-glow);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    /* ─── QUOTE ─── */
+    blockquote {
+      border-left: 2px solid var(--ouro);
+      padding: 14px 24px;
+      margin: 28px 0;
+      font-style: italic;
+      color: var(--text-muted);
+      background: rgba(245,200,66,0.03);
+      border-radius: 0 6px 6px 0;
+      box-shadow: inset 0 0 30px rgba(245,200,66,0.02);
+      font-size: 1.05rem;
+    }
+
+    /* ─── BADGE ─── */
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: bold;
+      font-family: 'Cinzel', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .badge-green { background: #071407; color: #7adf8a; border: 1px solid #1a4a1a; }
+    .badge-red   { background: #150505; color: #f08080; border: 1px solid #4a1515; }
+    .badge-gold  { background: #120d00; color: var(--ouro); border: 1px solid var(--border-glow); }
+
+    /* ─── INFO BOX ─── */
+    .info-box {
+      background: var(--bg-card2);
+      border: 1px solid var(--border-glow);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      box-shadow: inset 0 0 40px rgba(245,200,66,0.02);
+    }
+
+    .info-box ul { list-style: none; padding: 0; }
+
+    .info-box ul li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      border-bottom: 1px solid rgba(61,44,0,0.2);
+    }
+
+    .info-box ul li:last-child { border-bottom: none; }
+
+    .info-box ul li::before {
+      content: '◆';
+      color: var(--ouro-dim);
+      position: absolute;
+      left: 0;
+      font-size: 0.55rem;
+      top: 9px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 52px 24px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      display: block;
+      width: 300px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--ouro-dark), transparent);
+      margin: 0 auto 36px;
+    }
+
+    /* ─── HEADER/FOOTER UNUSED CLASSES (kept for safety) ─── */
+    .logo-wrapper { display: none; }
+    .header-img-left, .header-img-right { display: none; }
+    .header-center { display: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .cmd-item { flex-direction: column; gap: 4px; }
+      .cmd-code { min-width: unset; }
+      .prazo-grid { grid-template-columns: 1fr; }
+      nav li a { padding: 10px 12px; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Condado de Valíria</h1>
+  <p class="subtitle">Manual de Entrega de Empresas e Propriedades</p>
+  <div class="banner-divider">
+    <img src="valiria3.png" alt="" />
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#lore">Lore</a></li>
+    <li><a href="#roteiro">Roteiro</a></li>
+    <li><a href="#referencias">Referências</a></li>
+    <li><a href="#comunicado">Comunicado</a></li>
+    <li><a href="#fiscalizacao">Fiscalização</a></li>
+    <li><a href="#comandos">Comandos</a></li>
+  </ul>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- AVISOS -->
+  <section id="avisos" style="padding-top: 48px;">
+    <div class="section-header">
+      <span class="section-icon">⚠️</span>
+      <h2>Avisos Importantes</h2>
+    </div>
+    <div class="aviso-box">
+      <div class="aviso-title">⚠ Leia antes de qualquer entrega</div>
+      <ul>
+        <li>Antes de entregar qualquer empresa, comunicar aos responsáveis para ficarem cientes.</li>
+        <li>Após <code>/properties</code>, confirmar com o dono se aparece o símbolo da casa no mapa. Se não aparecer, pedir que os players setados tomem chá.</li>
+        <li>A bancada de nativo são duas (utensílios e comida) — pedir para colocar uma distante da outra.</li>
+        <li>Sempre registrar as informações no painel, planilha (abas de anotação e aumento de baú) e na CDS colocar o ID do Discord do dono.</li>
+        <li>Armaria × Fazenda: quem tem Armaria <strong>NÃO</strong> pode ter o craft de pólvora na fazenda — atenção ao entregar receitas de Craft.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PARTE I — LORE -->
+  <section id="lore">
+    <div class="section-header">
+      <span class="section-icon">📜</span>
+      <h2>Parte I — Lore Institucional</h2>
+    </div>
+
+    <p>
+      No Condado de Valíria, onde cada negócio erguido sustenta o progresso da região e cada fazenda alimenta sua economia, nenhuma empresa ou propriedade nasce sem orientação, registro e compromisso.
+    </p>
+    <p>
+      Quando um cidadão manifesta interesse em investir no Condado, ele entra em contato com a Administração de Valíria, responsável por organizar e supervisionar as atividades comerciais e rurais. O primeiro passo é a realização do cadastro oficial dos futuros empreendedores e fazendeiros, garantindo que todos compreendam as responsabilidades assumidas ao receber uma empresa ou propriedade.
+    </p>
+    <p>
+      Em seguida, é agendada uma conversa presencial, onde ouvimos o player, entendemos suas necessidades e apresentamos as empresas disponíveis.
+    </p>
+
+    <h3>Empresas Disponíveis</h3>
+    <div class="empresas-grid">
+      <div class="empresa-card"><span class="emp-icon">🍺</span>Saloon</div>
+      <div class="empresa-card"><span class="emp-icon">🔫</span>Armaria</div>
+      <div class="empresa-card"><span class="emp-icon">🐎</span>Estábulos</div>
+      <div class="empresa-card"><span class="emp-icon">🍞</span>Padaria</div>
+      <div class="empresa-card"><span class="emp-icon">🧵</span>Ateliê</div>
+      <div class="empresa-card"><span class="emp-icon">⚒️</span>Ferraria</div>
+      <div class="empresa-card"><span class="emp-icon">⛏️</span>Mineradora</div>
+    </div>
+
+    <p>As aquisições podem ocorrer por <strong>doação</strong> ou <strong>contingente</strong>, sempre respeitando as diretrizes administrativas e econômicas do Condado.</p>
+    <p>O mesmo cuidado se aplica às propriedades rurais. A Administração atua como verdadeira corretora de terras de Valíria, apresentando as fazendas disponíveis e, quando necessário, realizando o transporte até o local.</p>
+
+    <h3>Orientações Obrigatórias Repassadas ao Player</h3>
+    <div class="info-box">
+      <ul>
+        <li>Regras de movimentação de baú</li>
+        <li>Uso adequado da mesa de Craft</li>
+        <li>Funcionamento de lojas com valores tabelados</li>
+        <li>Pagamento regular de impostos</li>
+        <li>Normas sobre ausência do player</li>
+        <li>Regras de setagem em empresas e fazendas</li>
+        <li>Posicionamento correto de lojas e estruturas</li>
+        <li>Boas práticas de produção e utilização da mesa de Craft</li>
+      </ul>
+    </div>
+
+    <h3>Monitoramento e Retomada</h3>
+    <p>A Administração informa que todas as empresas e propriedades são monitoradas regularmente. Caso seja constatada falta de movimentação por período prolongado, valores incorretos em lojas ou baús, ou descumprimento das regras, o proprietário será formalmente notificado e receberá um prazo para regularização.</p>
+    <p>Persistindo a irregularidade, a empresa ou propriedade poderá ser submetida à retomada administrativa pelo Condado de Valíria, retornando ao controle da Administração para ser novamente disponibilizada.</p>
+
+    <h3>Setor Jurídico</h3>
+    <p>Após a entrega oficial de uma empresa ou fazenda, o novo proprietário deverá obrigatoriamente entrar em contato com o <strong>Setor Jurídico do Condado de Valíria</strong>, a fim de realizar o cadastro formal de seu empreendimento, bem como receber todas as orientações referentes à tributação e ao pagamento correto dos impostos vigentes. Somente após esse procedimento a empresa ou propriedade será considerada devidamente regularizada.</p>
+
+    <blockquote>
+      "Em Valíria, não entregamos apenas chaves, contratos ou terras. Entregamos ordem, responsabilidade e um legado para o futuro do Condado."
+    </blockquote>
+  </section>
+
+  <!-- PARTE II — ROTEIRO -->
+  <section id="roteiro">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <h2>Parte II — Roteiro de Entrega</h2>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <strong>Abertura do Ticket e Análise Inicial</strong>
+          <ul>
+            <li>Informar sobre empresa/fazenda — seja ela donate (compra no site) ou contingente (verificar o contingente correto).</li>
+            <li>Restrições: Cavalaria e Ilegal não podem pegar Armaria; fazendeiro não pode ter Saloon (exceto Donate).</li>
+            <li>Bandos: se contingente grande, terão um forte; se pequeno, será acampamento (não pode ter fazenda).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <strong>Coleta de Dados (Contingente)</strong>
+          <ul>
+            <li>Pedir que todos enviem: <strong>ID</strong>, <strong>ID do Discord</strong> e <strong>Nome do jogador</strong>.</li>
+            <li>Esses dados ajudam a verificar se os contingentes estão em mais de um lugar.</li>
+            <li>Caso esteja, o jogador terá que comprar no site o slot de emprego.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <strong>Apresentação e Agendamento</strong>
+          <ul>
+            <li>Pode-se mostrar em call e in-game (dando TP, pedindo que o player se esconda para que possamos dar o TP até o local da fazenda/empresa).</li>
+            <li>Informar/pedir autorização aos responsáveis de propriedades sobre a entrega.</li>
+            <li>Combinar em call o dia e horário da entrega (todos devem estar presentes na call e in-game).</li>
+            <li>Solicitar que todos abram conta no banco mais próximo ao estabelecimento.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <strong>Execução da Entrega</strong>
+          <ul>
+            <li>Comunicar aos responsáveis antes de qualquer entrega.</li>
+            <li>Realizar o pagamento simbólico via <code>/giveitem</code>.</li>
+            <li>Comprar a propriedade via <code>/properties</code> (dono e sócio precisam estar ao lado do CAC).</li>
+            <li>Confirmar com o jogador-dono se aparece o símbolo da casa no mapa.</li>
+            <li>Criar a empresa via <code>/createbusiness</code> (descrição = número/empresa conforme planilha).</li>
+            <li>Entregar a mesa via <code>/darmesa</code>. Para fazenda: dar a receita de craft. Para empresa: apenas a mesa do tipo de empresa.</li>
+            <li>Para fazendas, entregar as carroças compradas via <code>/darCarroca</code>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <strong>Pós-Entrega: Configuração e Orientação</strong>
+          <ul>
+            <li>Verificar se foi solicitado aumento de baú (responsáveis fazem o aumento).</li>
+            <li>Ensinar o player a reposicionar baú, mesa de Craft e loja (pedir que compartilhe a tela).</li>
+            <li>Acessos via <code>F4 → Ações → Menu Propriedades</code>: dar acesso aos funcionários, reposicionar baú e loja.</li>
+            <li>Informar que o nome da loja só será mudado após o RR.</li>
+            <li>Ensinar como craftar e mexer na loja (para jogadores novos).</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Carroças — Comandos (Fazendas)</h3>
+    <div class="cmd-grid">
+      <div class="cmd-item">
+        <span class="cmd-code">/removerCarroca [nº da fazenda]</span>
+        <span class="cmd-desc">Remove a carroça atual da fazenda.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] plantation</span>
+        <span class="cmd-desc">Entrega carroça de plantação.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] irrigation</span>
+        <span class="cmd-desc">Entrega carroça de irrigação.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] harvewst</span>
+        <span class="cmd-desc">Entrega carroça de colheita.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] combo_plantation_irrigation</span>
+        <span class="cmd-desc">Combo: plantação + irrigação.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] combo_plantation_harvest</span>
+        <span class="cmd-desc">Combo: plantação + colheita.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] combo_irrigation_harvest</span>
+        <span class="cmd-desc">Combo: irrigação + colheita.</span>
+      </div>
+      <div class="cmd-item">
+        <span class="cmd-code">/darCarroca [nº] combo_all</span>
+        <span class="cmd-desc">Combo completo: as 3 carroças (plantação, irrigação e colheita). Ex.: /darCarroca 35 combo_all</span>
+      </div>
+    </div>
+
+    <h3>Criação de Cargos da Empresa</h3>
+    <div class="info-box">
+      <ul>
+        <li><code>F4 → Ações → Menu Empresa</code> — anotar o ID da empresa para colocar na planilha.</li>
+        <li>Criar cargo da empresa sempre com <strong>salário 0</strong>.</li>
+        <li>Dar acesso aos sócios e funcionários (explicar sobre acesso total e membro).</li>
+        <li>Pedir para entrar no Discord Conexão (cadastramento de empresa ou fazenda) para dar cargo ao dono e sócio.</li>
+        <li>Cargo fazendeiro: <strong>Fazendeiro + propriedades + Nome da empresa</strong></li>
+        <li>Cargo empresário: <strong>Empresa + proprietário + nº da fazenda</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PARTE III — REFERÊNCIAS -->
+  <section id="referencias">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2>Parte III — Referências Técnicas</h2>
+    </div>
+
+    <h3>Tamanhos de Baú por Tipo de Negócio</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa / Propriedade</th>
+            <th>Capacidade do Baú</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Artesanato</td><td>2.500</td></tr>
+          <tr><td>Ateliê</td><td>1.000</td></tr>
+          <tr><td>Armaria</td><td>3.000</td></tr>
+          <tr><td>Estábulo</td><td>2.500</td></tr>
+          <tr><td>Ferraria</td><td>3.000</td></tr>
+          <tr><td>Ferrovia</td><td>3.000</td></tr>
+          <tr><td>Gráfica</td><td>1.500</td></tr>
+          <tr><td>Mineradora</td><td>3.000</td></tr>
+          <tr><td>Madeireira</td><td>3.000</td></tr>
+          <tr><td>Nativos</td><td>5.000</td></tr>
+          <tr><td>Padaria</td><td>1.500</td></tr>
+          <tr><td>Saloon</td><td>1.500</td></tr>
+          <tr><td>Tabacaria</td><td>1.000</td></tr>
+          <tr><td>Floricultura</td><td>3.000</td></tr>
+          <tr><td>Fazenda Ultimate</td><td><span class="badge badge-gold">7.500 + 8 Crafts</span></td></tr>
+          <tr><td>Fazenda Ouro</td><td><span class="badge badge-gold">5.000 + 4 Crafts</span></td></tr>
+          <tr><td>Fazenda Prata</td><td>4.000 + 2 Crafts</td></tr>
+          <tr><td>Fazenda Bronze</td><td>2.500 + 1 Craft</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Identificadores de Empresa (para /createbusiness)</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Negócio</th>
+            <th>Identificador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Armaria</td><td><code>gunsmith</code></td></tr>
+          <tr><td>Artesanato</td><td><code>craftwork</code></td></tr>
+          <tr><td>Ateliê</td><td><code>boutique</code></td></tr>
+          <tr><td>Estábulo</td><td><code>stable</code></td></tr>
+          <tr><td>Fazenda</td><td><code>farmer</code></td></tr>
+          <tr><td>Ferraria</td><td><code>metal</code></td></tr>
+          <tr><td>Ferrovia</td><td><code>station_XXXX</code> (nome da estação)</td></tr>
+          <tr><td>Gráfica</td><td><code>graphic</code></td></tr>
+          <tr><td>Governo (Ministérios, Estaduais, Corregedoria)</td><td><code>Government</code></td></tr>
+          <tr><td>Jornal</td><td><code>newspaper</code></td></tr>
+          <tr><td>Madeireira</td><td><code>wood</code></td></tr>
+          <tr><td>Mineradora</td><td><code>miner</code></td></tr>
+          <tr><td>Perfumaria</td><td><code>floricultura</code></td></tr>
+          <tr><td>Saloon</td><td><code>saloon</code></td></tr>
+          <tr><td>Tabacaria</td><td><code>tobacco</code></td></tr>
+          <tr><td>Tribos</td><td><code>nativos</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Insumos</h3>
+    <div class="info-box">
+      <ul>
+        <li>Garrafa de álcool</li>
+        <li>Pólvora</li>
+        <li>Levedura</li>
+        <li>Melado de cana</li>
+        <li>Garrafa de leite</li>
+        <li>Açúcar</li>
+        <li>Farinha de trigo <span class="badge badge-red">OU</span> Cerveja de trigo (não pode ter as duas)</li>
+        <li>Pó de café <span class="badge badge-red">OU</span> Licor de café (não pode ter as duas)</li>
+        <li>Amido de milho <span class="badge badge-red">OU</span> Óleo de milho (não pode ter as duas)</li>
+      </ul>
+    </div>
+
+    <div class="aviso-box">
+      <div class="aviso-title">⚠ Atenção — Armaria × Fazenda</div>
+      <ul>
+        <li>Quem possui Armaria <strong>NÃO</strong> pode ter o craft de pólvora na fazenda. Verificar antes de entregar a receita de Craft para evitar conflito entre os negócios.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PARTE IV — COMUNICADO -->
+  <section id="comunicado">
+    <div class="section-header">
+      <span class="section-icon">📢</span>
+      <h2>Parte IV — Comunicado Oficial</h2>
+    </div>
+
+    <p>Informamos que, conforme as diretrizes de atividade mínima, são adotados os seguintes critérios para retomada administrativa por inatividade:</p>
+
+    <h3>Prazos de Inatividade</h3>
+    <div class="prazo-grid">
+      <div class="prazo-card contingente">
+        <div class="prazo-days">7</div>
+        <div class="prazo-label">dias sem atividade<br><strong>Contingente</strong></div>
+      </div>
+      <div class="prazo-card donate">
+        <div class="prazo-days" style="color:#6bcf7f">15</div>
+        <div class="prazo-label">dias sem atividade<br><strong>Donate</strong></div>
+      </div>
+    </div>
+
+    <h3>Requisitos de Movimentação</h3>
+    <div class="info-box">
+      <ul>
+        <li>Movimentar o baú <strong>E</strong> realizar craft (ambos são obrigatórios).</li>
+        <li>A movimentação do baú só será considerada válida quando diretamente relacionada ao negócio.</li>
+        <li>Manter no mínimo <strong>300 itens</strong> disponíveis na loja.</li>
+        <li>Entrar em contato com o Setor Jurídico do Condado de Valíria para realizar o cadastro do empreendimento e receber orientações sobre tributação e pagamento de impostos.</li>
+      </ul>
+    </div>
+
+    <h3>Sobre os Comunicados</h3>
+    <p>Antes do término do prazo de inatividade, o empresário receberá um <strong>comunicado de alerta</strong> sobre a ausência de movimentação e terá um prazo para regularizar a situação.</p>
+    <p>Caso a regularização não ocorra dentro do prazo informado, será emitido o <strong>comunicado de retirada</strong>, e a empresa será retomada administrativamente em até 24 horas.</p>
+
+    <h3>Registro de Ausência</h3>
+    <p>Caso o proprietário precise se ausentar por motivos justificados, é obrigatório registrar a ausência na sala apropriada, informando o período de afastamento. Durante esse período, a empresa não será considerada inativa.</p>
+
+    <blockquote>
+      Essas medidas visam manter a economia ativa, organizada e justa para todos. — Atenciosamente, Administração do Condado de Valíria.
+    </blockquote>
+  </section>
+
+  <!-- PARTE V — FISCALIZAÇÃO -->
+  <section id="fiscalizacao">
+    <div class="section-header">
+      <span class="section-icon">🔍</span>
+      <h2>Parte V — Roteiro de Fiscalização (CAC)</h2>
+    </div>
+
+    <p>Todas as <strong>segundas-feiras</strong> realizar fiscalização de empresa/fazenda.</p>
+
+    <h3>Itens a Verificar</h3>
+    <div class="info-box">
+      <ul>
+        <li>Movimentação do baú (coisas pertinentes ao tipo de negócio).</li>
+        <li>Valores da loja conforme preço tabelado.</li>
+        <li>Datalog na parte de Craft.</li>
+      </ul>
+    </div>
+
+    <h3>Procedimento em Caso de Irregularidade</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <strong>Notificar o jogador</strong>
+          <ul><li>Verificar se não há ausência registrada antes de notificar.</li></ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <strong>Tirar print da irregularidade</strong>
+          <ul><li>Documentar o que foi encontrado fora das regras.</li></ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <strong>Colocar na aba de notificação</strong>
+          <ul><li>Registrar no sistema para acompanhamento.</li></ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <strong>Acompanhar se o player alterou o que foi pedido</strong>
+          <ul><li>Caso não tenha realizado a modificação, analisar a retomada de empresa.</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <h3>Tabelas de Combos por Negócio</h3>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:16px;">Valores de referência para edição via <code>/editarempresa</code>.</p>
+
+    <div class="combo-grid">
+
+      <div class="combo-card">
+        <div class="combo-card-title">⛏️ Combo Mineradora</div>
+        <div class="table-wrapper" style="border:none; border-radius:0;">
+          <table>
+            <thead><tr><th>Item</th><th>Qtd</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Pepita de Ouro</td><td>0,83 × 5</td><td>4,15</td></tr>
+              <tr><td>Pepita de Chumbo</td><td>0,85 × 5</td><td>4,25</td></tr>
+              <tr><td>Pepita de Prata</td><td>0,79 × 5</td><td>3,95</td></tr>
+              <tr><td>Pepita de Quarto</td><td>0,38 × 5</td><td>1,90</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-card-title">📰 Combo Jornal</div>
+        <div class="table-wrapper" style="border:none; border-radius:0;">
+          <table>
+            <thead><tr><th>Item</th><th>Qtd</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Jornal</td><td>2,88 × 10</td><td>28,80</td></tr>
+              <tr><td>Cartão de visita</td><td>× 2</td><td>6,90</td></tr>
+              <tr><td>Revista</td><td>8,28 × 1</td><td>8,28</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-card-title">🐎 Combo Estábulo</div>
+        <div class="table-wrapper" style="border:none; border-radius:0;">
+          <table>
+            <thead><tr><th>Item</th><th>Qtd</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Estimulante de Cavalo</td><td>× 10</td><td>11,73</td></tr>
+              <tr><td>Tônico de Cura</td><td>× 10</td><td>24,20</td></tr>
+              <tr><td>Custo real do estimulante</td><td>—</td><td>5,72</td></tr>
+              <tr><td>Custo real do tônico</td><td>—</td><td>6,14</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-card-title">🚬 Combo Tabacaria</div>
+        <div class="table-wrapper" style="border:none; border-radius:0;">
+          <table>
+            <thead><tr><th>Item</th><th>Qtd</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Bala de Mel</td><td>× 5</td><td>4,90</td></tr>
+              <tr><td>Charuto</td><td>× 10</td><td>11,73</td></tr>
+              <tr><td>Goma de Mascar</td><td>× 5</td><td>10,95</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-card-title">⚒️ Combo Ferraria</div>
+        <div class="table-wrapper" style="border:none; border-radius:0;">
+          <table>
+            <thead><tr><th>Item</th><th>Qtd</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Rastelo</td><td>× 5</td><td>17,95</td></tr>
+              <tr><td>Prego</td><td>× 10</td><td>7,10</td></tr>
+              <tr><td>Moedor</td><td>× 10</td><td>7,10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-card-title">🧵 Combo Artesanato</div>
+        <div class="table-wrapper" style="border:none; border-radius:0;">
+          <table>
+            <thead><tr><th>Item</th><th>Qtd</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Cantil</td><td>× 5</td><td>15,02</td></tr>
+              <tr><td>Mochila</td><td>× 5</td><td>3,80</td></tr>
+              <tr><td>Pigmento</td><td>× 10</td><td>3,00</td></tr>
+              <tr><td>Linha de Algodão</td><td>× 10</td><td>4,46</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PARTE VI — COMANDOS -->
+  <section id="comandos">
+    <div class="section-header">
+      <span class="section-icon">⌨️</span>
+      <h2>Parte VI — Glossário de Comandos</h2>
+    </div>
+
+    <div class="glossary">
+
+      <div class="gloss-group">
+        <div class="gloss-group-title">Entrega e Criação</div>
+        <div class="cmd-grid">
+          <div class="cmd-item">
+            <span class="cmd-code">/giveitem [ID] money 1.00</span>
+            <span class="cmd-desc">Realiza o pagamento simbólico (Doll. $$). Motivo: "Compra de fazenda X / empresa X".</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">/properties</span>
+            <span class="cmd-desc">Lista de propriedades disponíveis para realizar a compra. Dono e sócio precisam estar ao lado do CAC para serem setados.</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">/createbusiness [ID da empresa]</span>
+            <span class="cmd-desc">Cria a empresa. A descrição sempre será o número/empresa como está na planilha. O nome visível pode ser conforme escolha do jogador.</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">/darmesa [bancada]</span>
+            <span class="cmd-desc">Entrega a mesa/bancada. Para fazenda: dar a receita (crafts, regra de Craft não casado). Para empresa: apenas a mesa do tipo de empresa.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gloss-group">
+        <div class="gloss-group-title">Atalhos de Interface (in-game)</div>
+        <div class="cmd-grid">
+          <div class="cmd-item">
+            <span class="cmd-code">F4 → Ações → Menu Propriedades</span>
+            <span class="cmd-desc">Dar acesso aos funcionários (acesso ao baú), reposicionar baú e reposicionar loja.</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">F4 → Ações → Menu Empresa</span>
+            <span class="cmd-desc">Anotar o ID da empresa para colocar na planilha. Criar cargos (sempre salário 0) e definir acessos.</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">F4 → Ações → Empresas → Criar cargo (dono)</span>
+            <span class="cmd-desc">Usado na entrega de banco — salário 0, contratar a pessoa do lado como dono. Não precisa comprar a propriedade.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gloss-group">
+        <div class="gloss-group-title">Edição e Manutenção</div>
+        <div class="cmd-grid">
+          <div class="cmd-item">
+            <span class="cmd-code">/editarempresa</span>
+            <span class="cmd-desc">Comando para editar empresa por ouro.</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">/clearinv [ID]</span>
+            <span class="cmd-desc">Apaga o inventário do jogador. Usado ao retirar empresa para limpar os itens da mochila. Ex.: /clearinv 7290</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gloss-group">
+        <div class="gloss-group-title">Retomada / Exclusão Administrativa</div>
+        <div class="cmd-grid">
+          <div class="cmd-item">
+            <span class="cmd-code">/deletebusiness [letra+número]</span>
+            <span class="cmd-desc">Deleta a empresa. Ex.: /deletebusiness BM0707</span>
+          </div>
+          <div class="cmd-item">
+            <span class="cmd-code">/deleteproperty [ID property]</span>
+            <span class="cmd-desc">Deleta a propriedade.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <p>Condado de Valíria — Manual de Entrega de Empresas e Propriedades</p>
+  <p style="margin-top:8px; font-size:0.8rem;">Lore · Roteiros · Comandos Administrativos</p>
+  <p style="margin-top: 24px; font-style: italic; color: #6b5030;">— Fim do Manual —</p>
+</footer>
+
+</body>
+</html>
