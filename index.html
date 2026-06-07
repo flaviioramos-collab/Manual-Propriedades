@@ -1134,15 +1134,15 @@
       <div class="gloss-group">
         <div class="gloss-group-title">Atalhos de Interface (in-game)</div>
         <div class="cmd-grid">
-          <div class="cmd-item">
+          <div class="cmd-item no-copy">
             <span class="cmd-code">F4 → Ações → Menu Propriedades</span>
             <span class="cmd-desc">Dar acesso aos funcionários (acesso ao baú), reposicionar baú e reposicionar loja.</span>
           </div>
-          <div class="cmd-item">
+          <div class="cmd-item no-copy">
             <span class="cmd-code">F4 → Ações → Menu Empresa</span>
             <span class="cmd-desc">Anotar o ID da empresa para colocar na planilha. Criar cargos (sempre salário 0) e definir acessos.</span>
           </div>
-          <div class="cmd-item">
+          <div class="cmd-item no-copy">
             <span class="cmd-code">F4 → Ações → Empresas → Criar cargo (dono)</span>
             <span class="cmd-desc">Usado na entrega de banco — salário 0, contratar a pessoa do lado como dono. Não precisa comprar a propriedade.</span>
           </div>
@@ -1194,6 +1194,7 @@
   document.querySelectorAll('.cmd-item').forEach(function(item) {
     var codeEl = item.querySelector('.cmd-code');
     if (!codeEl) return;
+    if (item.classList.contains('no-copy')) return;
 
     var btn = document.createElement('button');
     btn.className = 'copy-btn';
