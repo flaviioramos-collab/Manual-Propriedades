@@ -559,6 +559,37 @@
       .prazo-grid { grid-template-columns: 1fr; }
       nav li a { padding: 10px 12px; font-size: 0.7rem; }
     }
+
+    /* ─── COPY BUTTON ─── */
+    .copy-btn {
+      margin-left: auto;
+      flex-shrink: 0;
+      align-self: center;
+      background: transparent;
+      border: 1px solid var(--border-glow);
+      color: var(--text-muted);
+      border-radius: 5px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: var(--ouro-dim);
+      color: var(--ouro-brilho);
+      border-color: var(--ouro);
+      box-shadow: 0 0 8px rgba(245,200,66,0.25);
+    }
+
+    .copy-btn.copied {
+      background: #0d2a0d;
+      border-color: #4caf50;
+      color: #6bcf7f;
+    }
   </style>
 </head>
 <body>
@@ -1157,6 +1188,48 @@
   <p style="margin-top:8px; font-size:0.8rem;">Lore · Roteiros · Comandos Administrativos</p>
   <p style="margin-top: 24px; font-style: italic; color: #6b5030;">— Fim do Manual —</p>
 </footer>
+
+<script>
+  // Adiciona botão "Copiar" em todos os blocos de comando
+  document.querySelectorAll('.cmd-item').forEach(function(item) {
+    var codeEl = item.querySelector('.cmd-code');
+    if (!codeEl) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = '📋 Copiar';
+
+    btn.addEventListener('click', function() {
+      var text = codeEl.textContent.trim();
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅ Copiado!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = '📋 Copiar';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        // fallback para navegadores antigos
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '✅ Copiado!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = '📋 Copiar';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+
+    item.appendChild(btn);
+  });
+</script>
 
 </body>
 </html>
